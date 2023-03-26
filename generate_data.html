@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ambil data</title>
+  <script>
+    function getRandomValue() {
+      var myArray = ['Cindy', 'Karlina', 'Husna', 'Demi', 'Anggita', 'Paramitha', 'Diandra', 'Caesarani', 'Izzatul', 'Fathina', 'Dela', 'Labaika', 'Anisah', 'Annis', 'Aelda', 'Amalia', 'Luthfia', 'Vanny', 'Adinda', 'Afrida', 'Rahma', 'Laras', 'Ayulia', 'Finkha', 'Yova', 'Dyah', 'Citra', 'Hanifa', 'Lella', 'Tania', 'Galih', 'Satyawati', 'Wiena', 'Desy', 'Elza', 'Ruthcharuni', 'Nael', 'Qatrun', 'Candrakasi', 'Anindyanti', 'Evi', 'Syarifah', 'Ratu', 'Nia', 'Ranea', 'Nadiya', 'Abi', 'Larascaesara', 'Defri', 'Naomi', 'Fathir', 'Hilmiansyah', 'Tobing', 'Virgina', 'Aisyah', 'Puspitasari', 'Azhari', 'Fadholi', 'Kartika', 'Naufal', 'Nistiyana', 'Fadhillah', 'Indi', 'Subiarsono', 'Sukmamuliawanty', 'Qodriyah', 'Juliyanto', 'Rikzan', 'Clara', 'Primastiny', 'Hidayatul', 'Octavia', 'Mentari', 'Oklita', 'Abidah', 'Rahayoe', 'Nindya', 'Sasna', 'Suputra', 'Lavinta', 'Ratih', 'Prayogi', 'Suryo', 'Anggraini', 'Rohani', 'Mulyana', 'Nisrina', 'Pratiwi', 'Sastra', 'Salsabila', 'Wiguna', 'Hasaniy', 'Prasetyani', 'Tiodimar', 'Andriyanti', 'Octaza', 'Octarina', 'Ciptasari', 'Dyarini', 'Daming', 'Rahmawati', 'Fudhail', 'Julianto', 'Prayugo', 'Kurniansyah', 'Efrinda', 'Citra', 'Aelda', 'Izzatul', 'Devy', 'Gita', 'Aimee', 'Nadiya', 'Ike', 'Yoan', 'Ayuandira', 'Tri', 'Arrum', 'Eni', 'Hanindita', 'Sulalah', 'Irani', 'Kartika', 'Choirunnisa', 'Servita', 'Caesariana', 'Indira', 'Titiek', 'Eylien', 'Siska', 'Novita', 'Wiwied', 'Risma', 'Dita', 'Hning', 'Ratu', 'Anita', 'Christalline', 'Elma', 'Christy', 'Indah', 'Widi', 'Sephira', 'Elliza', 'Wiena', 'Finkha', 'Bella', 'Labaika', 'Mia', 'Nathasya', 'Rocitha', 'Ossi', 'Fitri', 'Cintya', 'Farahdiba', 'Larascaesara', 'Silmi', 'Hidayanti', 'Haddad', 'Yunika', 'Delmeizar', 'Anggita', 'Sinuka', 'Mega', 'Resa', 'Rumanti', 'Langit', 'Oktazilvia', 'Eni', 'Rosmalia', 'Acbar', 'Wicaksono', 'Caesarani', 'Maulinda', 'Pringganti', 'Fadholi', 'Triashafira', 'Rizal', 'Ramadhanty', 'Tilasnuari', 'Milati', 'Ghina', 'Rohani', 'Mazaya', 'Purwanto', 'Tantin', 'Harkart', 'Tarigan', 'Fauzunuria', 'Fachrully', 'Ahugrah', 'Nadia', 'Hafizh', 'Jordy', 'Isnaini', 'Azhari', 'Maratun', 'Maharani', 'Iqbal', 'Mayori', 'Natasya', 'Wiratmansyah', 'Mubasyiroh', 'Pasha', 'Widian', 'Arfianti', 'Sayoga', 'Bertauli', 'Pambudi', 'Amsamsyum', 'Natalia', 'Alyani', 'Ayuriza', 'Elvira'];
+      var randomValue = myArray[Math.floor(Math.random() * myArray.length)];
+      document.getElementById("hasil").innerHTML = randomValue;
+    }
+
+    function copyName() {
+      var copyText = document.getElementById("hasil").innerText;
+      navigator.clipboard.writeText(copyText);
+    }
+
+    function copyPassword() {
+      var copyText = document.getElementById("password").innerText;
+      navigator.clipboard.writeText(copyText);
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+
+    #hasil,
+    #password {
+      display: block;
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Gaya umum */
+    body {
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    button.pick {
+      background-color: #00ffbf;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+    button.pw {
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+    button.name {
+      background-color: #ff0077;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+
+    /* Gaya untuk elemen spesifik */
+    #hasil {
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: inline-block;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    #password {
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: inline-block;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <span id="hasil">Click pick name</span></br>
+  <button class="pick" onclick="getRandomValue()">Pick Name</button>
+  <button class="name" onclick="copyName()">Copy Name</button></br>
+  <span id="password">Wsxedc@90</span></br>
+  <button class="pw" onclick="copyPassword()">Copy Password</button>
+</body>
+
+</html>
