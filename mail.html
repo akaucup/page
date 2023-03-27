@@ -8,37 +8,21 @@
 	<h1>Random Email Generator</h1>
 	<form>
 		<div>
-			<label for="first-name">First Name:</label>
-			<select id="first-name" name="first-name"></select>
-		</div>
-		<div>
-			<label for="last-name">Last Name:</label>
-			<select id="last-name" name="last-name"></select>
-		</div>
-		<button type="button" onclick="generateEmail()">Generate Email</button>
-		<div>
 			<label for="email">Generated Email:</label>
 			<input type="email" id="email" name="email" readonly>
 		</div>
+		<button type="button" onclick="generateEmail()">Generate</button>
+		<button type="button" onclick="copyToClipboard()">Copy</button>
 	</form>
 	<script>
 		const firstNames = ["John", "Jane", "David", "Sarah", "Michael"];
 		const lastNames = ["Doe", "Smith", "Johnson", "Brown", "Wilson"];
 
-		function generateSelectOptions(selectElement, options) {
-			for (let i = 0; i < options.length; i++) {
-				const option = document.createElement("option");
-				option.value = options[i];
-				option.text = options[i];
-				selectElement.add(option);
-			}
-		}
-
 		function generateEmail() {
-			const firstName = document.getElementById("first-name").value;
-			const lastName = document.getElementById("last-name").value;
+			const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+			const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
 			const randomChars = generateRandomChars(6);
-			const email = firstName.toLowerCase() + "." + lastName.toLowerCase() + randomChars + "@example.com";
+			const email = randomFirstName.toLowerCase() + "." + randomLastName.toLowerCase() + randomChars + "@example.com";
 			document.getElementById("email").value = email;
 		}
 
@@ -51,8 +35,12 @@
 			return result;
 		}
 
-		generateSelectOptions(document.getElementById("first-name"), firstNames);
-		generateSelectOptions(document.getElementById("last-name"), lastNames);
+		function copyToClipboard() {
+			const emailInput = document.getElementById("email");
+			emailInput.select();
+			emailInput.setSelectionRange(0, 99999); /* For mobile devices */
+			document.execCommand("copy");
+		}
 	</script>
 </body>
 </html>
