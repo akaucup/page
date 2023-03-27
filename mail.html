@@ -9,11 +9,11 @@
 	<form>
 		<div>
 			<label for="first-name">First Name:</label>
-			<input type="text" id="first-name" name="first-name">
+			<select id="first-name" name="first-name"></select>
 		</div>
 		<div>
 			<label for="last-name">Last Name:</label>
-			<input type="text" id="last-name" name="last-name">
+			<select id="last-name" name="last-name"></select>
 		</div>
 		<button type="button" onclick="generateEmail()">Generate Email</button>
 		<div>
@@ -22,6 +22,18 @@
 		</div>
 	</form>
 	<script>
+		const firstNames = ["John", "Jane", "David", "Sarah", "Michael"];
+		const lastNames = ["Doe", "Smith", "Johnson", "Brown", "Wilson"];
+
+		function generateSelectOptions(selectElement, options) {
+			for (let i = 0; i < options.length; i++) {
+				const option = document.createElement("option");
+				option.value = options[i];
+				option.text = options[i];
+				selectElement.add(option);
+			}
+		}
+
 		function generateEmail() {
 			const firstName = document.getElementById("first-name").value;
 			const lastName = document.getElementById("last-name").value;
@@ -38,6 +50,9 @@
 			}
 			return result;
 		}
+
+		generateSelectOptions(document.getElementById("first-name"), firstNames);
+		generateSelectOptions(document.getElementById("last-name"), lastNames);
 	</script>
 </body>
 </html>
