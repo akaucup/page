@@ -16,9 +16,11 @@
 			<span id="name"></span>
 			<button type="button" onclick="copyToClipboard('name')">Copy Name</button>
 			<br>
-			<label for="phone">Generated Phone Number:</label>
-			<span id="phone"></span>
-			<button type="button" onclick="copyToClipboard('phone')">Copy Phone Number</button>
+			<label for="phone-prefix">Phone Number Prefix (62):</label>
+			<input type="text" id="phone-prefix" maxlength="2">
+			<label for="phone-random">Random Phone Number:</label>
+			<span id="phone-random"></span>
+			<button type="button" onclick="copyToClipboard('phone-random')">Copy Random Phone Number</button>
 			<br>
 			<button type="button" onclick="generateEmailAndNameAndPhone()">Generate</button>
 		</div>
@@ -33,10 +35,13 @@
 			const randomChars = generateRandomChars(6);
 			const email = randomFirstName.toLowerCase() + "." + randomLastName.toLowerCase() + randomChars + "@example.com";
 			const name = randomFirstName + " " + randomLastName;
-			const phone = "6281" + generateRandomDigits(8);
+			const phonePrefix = document.getElementById("phone-prefix").value || "62";
+			const phoneRandom = generateRandomDigits(8);
+			const phone = phonePrefix + phoneRandom;
 			document.getElementById("email").textContent = email;
 			document.getElementById("name").textContent = name;
-			document.getElementById("phone").textContent = phone;
+			document.getElementById("phone-random").textContent = phoneRandom;
+			document.getElementById("phone-random").setAttribute("data-prefix", phonePrefix);
 		}
 
 		function generateRandomChars(length) {
