@@ -2,40 +2,54 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Random Name Generator</title>
+	<title>Random Email Generator</title>
 </head>
 <body>
-	<h1>Random Name Generator</h1>
-	<div>
-		<label>Generated First Name:</label>
-		<span id="firstName"></span>
-		<button type="button" onclick="copyToClipboard('firstName')">Salin</button>
-	</div>
-	<div>
-		<label>Generated Last Name:</label>
-		<span id="lastName"></span>
-		<button type="button" onclick="copyToClipboard('lastName')">Salin</button>
-	</div>
-	<button type="button" onclick="generateName()">Generate</button>
+	<h1>Random Email Generator</h1>
+	<form>
+		<div>
+			<label for="email">Generated Email:</label>
+			<span id="email"></span>
+			<button type="button" onclick="copyToClipboard('email')">Copy Email</button>
+			<br>
+			<label for="name">Generated Name:</label>
+			<span id="name"></span>
+			<button type="button" onclick="copyToClipboard('name')">Copy Name</button>
+			<br>
+			<button type="button" onclick="generateEmailAndName()">Generate</button>
+		</div>
+	</form>
 	<script>
 		const firstNames = ["John", "Jane", "David", "Sarah", "Michael"];
 		const lastNames = ["Doe", "Smith", "Johnson", "Brown", "Wilson"];
 
-		function generateName() {
+		function generateEmailAndName() {
 			const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
 			const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-			document.getElementById("firstName").textContent = randomFirstName;
-			document.getElementById("lastName").textContent = randomLastName;
+			const randomChars = generateRandomChars(6);
+			const email = randomFirstName.toLowerCase() + "." + randomLastName.toLowerCase() + randomChars + "@example.com";
+			const name = randomFirstName + " " + randomLastName;
+			document.getElementById("email").textContent = email;
+			document.getElementById("name").textContent = name;
+		}
+
+		function generateRandomChars(length) {
+			let result = '';
+			const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			for (let i = 0; i < length; i++) {
+				result += characters.charAt(Math.floor(Math.random() * characters.length));
+			}
+			return result;
 		}
 
 		function copyToClipboard(elementId) {
-			const element = document.getElementById(elementId);
-			const range = document.createRange();
-			range.selectNode(element);
-			window.getSelection().removeAllRanges();
-			window.getSelection().addRange(range);
-			document.execCommand("copy");
-			window.getSelection().removeAllRanges();
+			const text = document.getElementById(elementId).textContent;
+			const el = document.createElement('textarea');
+			el.value = text;
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
 		}
 	</script>
 </body>
