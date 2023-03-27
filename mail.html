@@ -18,9 +18,11 @@
 			<br>
 			<label for="phone-prefix">Phone Number Prefix (62):</label>
 			<input type="text" id="phone-prefix" maxlength="2">
+			<label for="phone-user-input">User Input:</label>
+			<input type="text" id="phone-user-input" maxlength="2">
 			<label for="phone-random">Random Phone Number:</label>
 			<span id="phone-random"></span>
-			<button type="button" onclick="copyToClipboard('phone-random')">Copy Random Phone Number</button>
+			<button type="button" onclick="copyToClipboard('phone-full')">Copy Full Phone Number</button>
 			<br>
 			<button type="button" onclick="generateEmailAndNameAndPhone()">Generate</button>
 		</div>
@@ -36,12 +38,13 @@
 			const email = randomFirstName.toLowerCase() + "." + randomLastName.toLowerCase() + randomChars + "@example.com";
 			const name = randomFirstName + " " + randomLastName;
 			const phonePrefix = document.getElementById("phone-prefix").value || "62";
+			const phoneUserInput = document.getElementById("phone-user-input").value;
 			const phoneRandom = generateRandomDigits(8);
-			const phone = phonePrefix + phoneRandom;
+			const phone = phonePrefix + phoneUserInput + phoneRandom;
 			document.getElementById("email").textContent = email;
 			document.getElementById("name").textContent = name;
 			document.getElementById("phone-random").textContent = phoneRandom;
-			document.getElementById("phone-random").setAttribute("data-prefix", phonePrefix);
+			document.getElementById("phone-full").textContent = phonePrefix + phoneUserInput + phoneRandom;
 		}
 
 		function generateRandomChars(length) {
@@ -62,15 +65,17 @@
 			return result;
 		}
 
-		function copyToClipboard(elementId) {
-			const text = document.getElementById(elementId).textContent;
-			const el = document.createElement('textarea');
-			el.value = text;
-			document.body.appendChild(el);
-			el.select();
-			document.execCommand('copy');
-			document.body.removeChild(el);
-		}
-	</script>
+		function copyToClipboard(id) {
+const text = document.getElementById(id).textContent;
+const input = document.createElement('input');
+input.setAttribute('value', text);
+document.body.appendChild(input);
+input.select();
+document.execCommand('copy');
+document.body.removeChild(input);
+alert('Copied to clipboard!');
+}
+</script>
+
 </body>
 </html>
