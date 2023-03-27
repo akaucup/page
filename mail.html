@@ -9,10 +9,10 @@
 	<form>
 		<div>
 			<label for="email">Generated Email:</label>
-			<input type="email" id="email" name="email" readonly>
+			<span id="email"></span>
+			<button type="button" onclick="copyToClipboard()">Copy</button>
+			<button type="button" onclick="generateEmail()">Generate</button>
 		</div>
-		<button type="button" onclick="generateEmail()">Generate</button>
-		<button type="button" onclick="copyToClipboard()">Copy</button>
 	</form>
 	<script>
 		const firstNames = ["John", "Jane", "David", "Sarah", "Michael"];
@@ -23,7 +23,7 @@
 			const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
 			const randomChars = generateRandomChars(6);
 			const email = randomFirstName.toLowerCase() + "." + randomLastName.toLowerCase() + randomChars + "@example.com";
-			document.getElementById("email").value = email;
+			document.getElementById("email").textContent = email;
 		}
 
 		function generateRandomChars(length) {
@@ -36,10 +36,13 @@
 		}
 
 		function copyToClipboard() {
-			const emailInput = document.getElementById("email");
-			emailInput.select();
-			emailInput.setSelectionRange(0, 99999); /* For mobile devices */
-			document.execCommand("copy");
+			const email = document.getElementById("email").textContent;
+			const el = document.createElement('textarea');
+			el.value = email;
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
 		}
 	</script>
 </body>
