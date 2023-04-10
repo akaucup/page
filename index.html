@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
-<title id="id">add your parameter to url</title>
-<script>
-function getUrlParameter(sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
-        {
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:image"
+      content="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    />
+    <meta property="og:url" content="https://datgen.netlify.app/v.2" />
+    <meta property="og:type" content="Random Data Generator" />
+    <meta property="og:title" content="Random Data Generator" />
+    <meta
+      property="og:description"
+      content="Random Data Generator adalah alat online yang memungkinkan Anda menghasilkan data acak dalam berbagai format, seperti nama, alamat, nomor telepon, email, dan banyak lagi. Dengan alat ini, Anda dapat menghasilkan data acak dalam jumlah besar untuk keperluan pengujian, pengembangan, atau keperluan pribadi. Coba sekarang dan hasilkan data acak dengan mudah dan cepat!"
+    />
+    <meta
+      name="description"
+      content="Random Data Generator adalah alat online yang memungkinkan Anda menghasilkan data acak dalam berbagai format, seperti nama, alamat, nomor telepon, email, dan banyak lagi. Dengan alat ini, Anda dapat menghasilkan data acak dalam jumlah besar untuk keperluan pengujian, pengembangan, atau keperluan pribadi. Coba sekarang dan hasilkan data acak dengan mudah dan cepat!"
+    />
+    <meta
+      name="keywords"
+      content="generator data, fakename , nama generate, situs nama, generator nama, generator nama indonesia"
+    />
+    <meta name="author" content="@adverFI" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title id="id">add your parameter to url</title>
+    <script>
+      function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split("&");
+        for (var i = 0; i < sURLVariables.length; i++) {
+          var sParameterName = sURLVariables[i].split("=");
+          if (sParameterName[0] == sParam) {
             return sParameterName[1];
+          }
         }
-    }
-}
+      }
 
-    var id = getUrlParameter('id');
-    document.getElementById('id').innerHTML = id;
-</script>
-</head>
-<body>
-    <pre>pageuid.netlify.app</pre>
-    <p>add this (/?id=thisOne) after link above and it will become like this <strong>https://pageuid.netlify.app/?id=thisOne</strong> to indetified the current chrome (only if you familiar using bot with jitbit macro recorder
-</body>
+      var id = getUrlParameter("id");
+      document.getElementById("id").innerHTML = id;
+    </script>
+  </head>
+  <body style="background-color: blanchedalmond">
+    <div class="container">
+      <pre><strong>pageuid.netlify.app</strong></pre>
+      <p>
+        add this (<strong>/?id=thisOne</strong>) after link above and it will
+        become like this
+        <strong>https://pageuid.netlify.app/?id=thisOne</strong> to indetified
+        the current chrome (only if you familiar using bot with jitbit macro
+        recorder).
+      </p>
+    </div>
+  </body>
 </html>
