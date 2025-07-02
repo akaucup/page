@@ -3,7 +3,6 @@ const CACHE_NAME = 'offline-cache-v1';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
-  '/style.css',
 ];
 
 // Install event
