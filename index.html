@@ -24,32 +24,48 @@
       content="generator data, fakename , nama generate, situs nama, generator nama, generator nama indonesia"
     />
     <meta name="author" content="@adverFI" />
-    <title id="id">add your parameter to url</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title id="title">Random Page</title>
+
     <script>
       function getUrlParameter(sParam) {
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split("&");
-        for (var i = 0; i < sURLVariables.length; i++) {
-          var sParameterName = sURLVariables[i].split("=");
-          if (sParameterName[0] == sParam) {
-            return sParameterName[1];
+        const sPageURL = window.location.search.substring(1);
+        const sURLVariables = sPageURL.split("&");
+        for (let i = 0; i < sURLVariables.length; i++) {
+          const sParameterName = sURLVariables[i].split("=");
+          if (sParameterName[0] === sParam) {
+            return decodeURIComponent(sParameterName[1]);
           }
         }
+        return null;
       }
 
-      var id = getUrlParameter("id");
-      document.getElementById("id").innerHTML = id;
+      const id = getUrlParameter("id");
+      const randomId = Math.random().toString(36).substring(2, 10); // ID acak
+      const displayId = id || randomId;
+
+      window.onload = function () {
+        document.getElementById("title").textContent = displayId;
+        document.getElementById("id-display").textContent = displayId;
+
+        if (id) {
+          document.getElementById("instruction").style.display = "none";
+        } else {
+          document.getElementById("instruction").style.display = "block";
+        }
+      };
     </script>
   </head>
   <body style="background-color: blanchedalmond">
     <div class="container">
       <pre><strong>pageuid.netlify.app</strong></pre>
-      <p>
+      <h2>ID: <span id="id-display"></span></h2>
+      <p id="instruction" style="display: none;">
         add this (<strong>/?id=thisOne</strong>) after link above and it will
         become like this
-        <strong>https://pageuid.netlify.app/?id=thisOne</strong> to indetified
-        the current chrome (only if you familiar using bot with jitbit macro
-        recorder).
+        <strong>https://pageuid.netlify.app/?id=thisOne</strong> to identify
+        the current chrome (only if you are familiar using bot with Jitbit Macro
+        Recorder).
       </p>
     </div>
 
