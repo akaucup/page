@@ -2,134 +2,97 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      property="og:image"
-      content="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1600"
-    />
+    <meta property="og:image" content="./assets/thumb.jpeg" />
     <meta property="og:url" content="https://datgen.netlify.app/v.2" />
-    <meta property="og:type" content="Random Data Generator" />
     <meta property="og:title" content="Random Data Generator" />
     <meta
       property="og:description"
-      content="Random Data Generator adalah alat online yang memungkinkan Anda menghasilkan data acak dalam berbagai format, seperti nama, alamat, nomor telepon, email, dan banyak lagi. Dengan alat ini, Anda dapat menghasilkan data acak dalam jumlah besar untuk keperluan pengujian, pengembangan, atau keperluan pribadi. Coba sekarang dan hasilkan data acak dengan mudah dan cepat!"
+      content="Alat online untuk menghasilkan data acak: nama, alamat, email, dan banyak lagi."
     />
     <meta
       name="description"
-      content="Random Data Generator adalah alat online yang memungkinkan Anda menghasilkan data acak dalam berbagai format, seperti nama, alamat, nomor telepon, email, dan banyak lagi. Dengan alat ini, Anda dapat menghasilkan data acak dalam jumlah besar untuk keperluan pengujian, pengembangan, atau keperluan pribadi. Coba sekarang dan hasilkan data acak dengan mudah dan cepat!"
+      content="Generator data acak dalam berbagai format."
     />
     <meta
       name="keywords"
-      content="generator data, fakename , nama generate, situs nama, generator nama, generator nama indonesia"
+      content="generator data, nama acak, fake data, indonesia"
     />
     <meta name="author" content="@adverFI" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
     <title id="title">Random Page</title>
-<style>
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background-color: blanchedalmond;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-
-      .container {
-        max-width: 600px;
-        width: 90%;
-        background-color: white;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        color: #333;
-      }
-
-      h2 {
-        margin-bottom: 1rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-
-      strong {
-        color: #444;
-      }
-
-      pre {
-        font-size: 1rem;
-        color: #555;
-        margin-bottom: 1rem;
-      }
-    </style>
-    <script>
-      function getUrlParameter(sParam) {
-        const sPageURL = window.location.search.substring(1);
-        const sURLVariables = sPageURL.split("&");
-        for (let i = 0; i < sURLVariables.length; i++) {
-          const sParameterName = sURLVariables[i].split("=");
-          if (sParameterName[0] === sParam) {
-            return decodeURIComponent(sParameterName[1]);
-          }
-        }
-        return null;
-      }
-
-      const id = getUrlParameter("id");
-      const randomId = Math.random().toString(36).substring(2, 10); // ID acak
-      const displayId = id || randomId;
-
-      window.onload = function () {
-        document.getElementById("title").textContent = displayId;
-        document.getElementById("id-display").textContent = displayId;
-
-        if (id) {
-          document.getElementById("instruction").style.display = "none";
-        } else {
-          document.getElementById("instruction").style.display = "block";
-        }
-      };
-    </script>
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
-  <body style="background-color: blanchedalmond">
+  <body>
     <div class="container">
-      <pre><strong>pageuid.netlify.app</strong></pre>
-      <h2>Your Random ID</br>
-        <span id="id-display"></span>
-      </h2>
-      <p id="instruction" style="display: none;">
-        add this (<strong>/?id=thisOne</strong>) after link above and it will
-        become like this
-        <strong>https://pageuid.netlify.app/?id=thisOne</strong> to identify
-        the current chrome (only if you are familiar using bot with Jitbit Macro
-        Recorder).
-      </p>
+      <header>
+        <pre><strong>pageuid.netlify.app</strong></pre>
+        <div class="controls">
+          <select id="language">
+            <option value="en">EN</option>
+            <option value="id">ID</option>
+          </select>
+          <button
+            id="theme-toggle"
+            class="theme-icon"
+            aria-label="Toggle dark mode"
+          >
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <h2>ID: <span id="id-display"></span></h2>
+
+        <div id="instruction-en" class="instruction">
+          Add <code>/?id=yourChoice</code> at the end of the link above:<br />
+          <span class="highlight">https://pageuid.netlify.app/?id=thisOne</span
+          ><br />
+          This helps identify the current browser tab. Useful with tools like
+          <strong>Jitbit Macro Recorder</strong>.
+        </div>
+        <div id="instruction-id" class="instruction hidden">
+          Tambahkan <code>/?id=pilihanKamu</code> di akhir tautan di atas:<br />
+          <span class="highlight">https://pageuid.netlify.app/?id=thisOne</span
+          ><br />
+          Ini berguna untuk mengenali tab browser yang aktif, cocok digunakan
+          bersama <strong>Jitbit Macro Recorder</strong>.
+        </div>
+
+        <section class="tools">
+          <h3>Other Tools:</h3>
+          <div class="tool-buttons">
+            <a
+              href="https://wachat.weddify.biz.id/"
+              target="_blank"
+              class="btn blue"
+              >🔗 Wachat</a
+            >
+            <a
+              href="https://ridge.yusupmabd.my.id/"
+              target="_blank"
+              class="btn green"
+              >🔗 RIDGE</a
+            >
+          </div>
+        </section>
+      </main>
     </div>
 
+    <script src="./src/app.js"></script>
     <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then(function (registration) {
-          console.log('ServiceWorker registered: ', registration);
-        })
-        .catch(function (error) {
-          console.log('ServiceWorker registration failed: ', error);
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then(function (registration) {
+              console.log("ServiceWorker registered: ", registration);
+            })
+            .catch(function (error) {
+              console.log("ServiceWorker registration failed: ", error);
+            });
         });
-    });
-  }
-</script>
-
+      }
+    </script>
   </body>
 </html>
