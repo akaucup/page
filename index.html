@@ -56,5 +56,21 @@
         recorder).
       </p>
     </div>
+
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(function (registration) {
+          console.log('ServiceWorker registered: ', registration);
+        })
+        .catch(function (error) {
+          console.log('ServiceWorker registration failed: ', error);
+        });
+    });
+  }
+</script>
+
   </body>
 </html>
