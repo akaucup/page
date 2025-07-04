@@ -9,6 +9,7 @@ function getUrlParameter(sParam) {
   }
   return null;
 }
+document.getElementById("base-url").textContent = window.location.origin;
 
 window.onload = () => {
   const id =
