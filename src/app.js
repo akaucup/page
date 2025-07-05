@@ -41,7 +41,7 @@ window.onload = () => {
   }
 // Ambil elemen
 const hostOnly = document.getElementById("host-only");
-const fullUrl = document.getElementById("full-url");
+const fullUrl = document.getElementById("base-url");
 
 // Isi nilai
 hostOnly.textContent = window.location.host;          // → pageuid.netlify.app
