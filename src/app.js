@@ -9,7 +9,7 @@ function getUrlParameter(sParam) {
   }
   return null;
 }
-document.getElementById("base-url").textContent = window.location.origin;
+
 
 window.onload = () => {
   const id =
@@ -39,6 +39,13 @@ window.onload = () => {
     en.classList.add("hidden");
     idn.classList.remove("hidden");
   }
+// Ambil elemen
+const hostOnly = document.getElementById("host-only");
+const fullUrl = document.getElementById("full-url");
+
+// Isi nilai
+hostOnly.textContent = window.location.host;          // → pageuid.netlify.app
+fullUrl.textContent = window.location.origin;         // → https://pageuid.netlify.app
 
   // === Dark Mode Toggle ===
   const toggleBtn = document.getElementById("theme-toggle");
